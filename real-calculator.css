@@ -1,0 +1,71 @@
+body {
+  background-color: #ffb6c1;
+}
+@font-face {
+  font-family: noto;
+  src: url(NotoSans-Regular.ttf);
+}
+#Calculator_section {
+  display: flex;
+  justify-content: center;
+}
+.calculator-container {
+  background-color: #0d0d0d;
+  width: 400px;
+  padding: 10px;
+}
+#move-ans {
+  margin-top: 60px;
+  height: 40px;
+  color: silver;
+  font-family: noto, sans-serif;
+  font-size: 27px;
+  text-align: right;
+  opacity: 50%;
+}
+#ansd {
+  border-bottom: 1px solid silver;
+  padding: 20px;
+  height: 16px;
+  font-family: noto, sans-serif;
+  margin-top: 10px;
+  font-size: 23px;
+  color: silver;
+  text-align: right;
+  display: flex;
+  justify-content: right;
+}
+#ans {
+  margin-right: 30px;
+  transform: translateY(-3px);
+}
+#number-container {
+  margin-top: 50px;
+}
+.row {
+  display: flex;
+  justify-content: space-around;
+  width: auto;
+  padding: 15px;
+}
+.number {
+  width: 55px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: grey;
+  font-size: 40px;
+  padding: 4x;
+  color: #0d0d0d;
+  text-align: center;
+  cursor: pointer;
+}
+#operators {
+  background-color: #6ede8a;
+}
+img {
+  height: 24px;
+}
+#clear {
+  color: white;
+  font-size: 20px;
+}

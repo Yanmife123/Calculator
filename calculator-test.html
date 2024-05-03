@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .container {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+      }
+      #cal,
+      .cal {
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+      }
+      .cal {
+        margin-top: 30px;
+      }
+      button {
+        height: 20px;
+        color: red;
+        width: 70px;
+        margin-top: 20px;
+      }
+      #ans {
+        background-color: aqua;
+      }
+      .ans-container{
+        display: flex;
+        justify-content: center;
+      }
+      .Calculator_conatainer {
+        display: flex;
+        justify-content: center;
+      }
+      .img {
+        height: 20px;
+      }
+      .operator {
+        display: flex;
+        border: 1px solid black;
+        padding: 10px;
+        width: 40px;
+        justify-content: center;
+        border-radius: 10px;
+      }
+      .operator_container {
+        width: 100px;
+      }
+      .operator:nth-child(2),
+      .operator:nth-child(3) {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <div class="Calculator_conatainer">
+      <div class="container">
+        <input type="text" id="cal" />
+        <input type="text" id="c2" class="cal" />
+        <button onclick="calculate()">calculate</button>
+      </div>
+      <div class="operator_container">
+        <div class="operator" id="add" onclick="clicka()">
+          <img src="img/plus.png" alt="add" class="img" id="plus" />
+        </div>
+        <div class="operator" onclick="click1()" id="times">
+          <img src="img/R.png" alt="multiplication" class="img" id="multiple" />
+        </div>
+        <div class="operator" onclick="click2()" id="substract">
+          <img
+            src="img/R (1).png"
+            alt="substraction"
+            class="img"
+            id="substraction"
+          />
+        </div>
+        <div class="operator" onclick="click3()" id="divide">
+          <img
+            src="img/517809-200.png"
+            alt="division"
+            class="img"
+            id="division"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="ans-container">
+      <div id="ans"></div>
+    </div>
+    <script>
+      let color = {
+        addColor: document.getElementById("add"),
+        multipleColor: document.getElementById("times"),
+        substractionColor: document.getElementById("substract"),
+        divisionColor: document.getElementById("divide"),
+      };
+
+      function clicka() {
+        color.addColor.style.backgroundColor = "red";
+        color.multipleColor.style.backgroundColor = "white";
+        color.substractionColor.style.backgroundColor = "white";
+        color.divisionColor.style.backgroundColor = "white";
+      }
+      function click1() {
+        color.addColor.style.backgroundColor = "white";
+        color.multipleColor.style.backgroundColor = "red";
+        color.substractionColor.style.backgroundColor = "white";
+        color.divisionColor.style.backgroundColor = "white";
+      }
+      function click2() {
+        color.addColor.style.backgroundColor = "white";
+        color.multipleColor.style.backgroundColor = "white";
+        color.substractionColor.style.backgroundColor = "red";
+        color.divisionColor.style.backgroundColor = "white";
+      }
+      function click3() {
+        color.divisionColor.style.backgroundColor = "red";
+        color.addColor.style.backgroundColor = "white";
+        color.multipleColor.style.backgroundColor = "white";
+        color.substractionColor.style.backgroundColor = "white";
+      }
+
+      function calculate() {
+        let num1 = document.getElementById("cal").value;
+        let num2 = document.getElementById("c2").value;
+
+        num1 = parseFloat(num1);
+        num2 = parseFloat(num2);
+
+        if (isNaN(num1) == true && isNaN(num2) == true) {
+          console.log("not a number");
+        } else if (isNaN(num1) == true && isNaN(num2) == false) {
+          let a = document.getElementById("cal").value;
+          console.log(a + " " + " is not a number");
+        } else if (isNaN(num1) == false && isNaN(num2) == true) {
+          let a = document.getElementById("c2").value;
+          console.log(a + " " + " is not a number");
+        } else {
+          if (color.addColor.style.backgroundColor == "red") {
+            sum = num1 + num2;
+            document.getElementById("ans").innerHTML = sum;
+            console.log(sum);
+          } else if (color.multipleColor.style.backgroundColor == "red") {
+            sum = num1 * num2;
+            document.getElementById("ans").innerHTML = sum;
+            console.log(sum);
+          } else if (color.substractionColor.style.backgroundColor == "red") {
+            sum = num1 - num2;
+            document.getElementById("ans").innerHTML = sum;
+            console.log(sum);
+          } else if ((color.divisionColor.style.backgroundColor = "red")) {
+            sum = num1 / num2;
+            document.getElementById("ans").innerHTML = sum;
+            console.log(sum);
+          }
+        }
+      }
+      /*       function checkString() {
+        if (isNaN(num1) == true && isNaN(num2) == true) {
+          console.log("not a number");
+        } else if({
+          let add = num1 + num2;
+          console.log(add);
+        }
+      } */
+    </script>
+  </body>
+</html>
