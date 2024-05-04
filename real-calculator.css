@@ -59,8 +59,14 @@ body {
   text-align: center;
   cursor: pointer;
 }
+.number:active{
+  background-color: silver;
+}
 #operators {
   background-color: #6ede8a;
+}
+#operators:active{
+  background-color: silver;
 }
 img {
   height: 24px;
