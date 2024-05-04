@@ -1,6 +1,14 @@
 body {
   background-color: #ffb6c1;
 }
+::selection{
+  background:none;
+  color: inherit;
+}
+::-moz-selection{
+  background:none;
+  color: inherit;
+}
 @font-face {
   font-family: noto;
   src: url(NotoSans-Regular.ttf);
