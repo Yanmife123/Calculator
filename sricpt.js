@@ -3,8 +3,13 @@ function n1(num) {
     console.log("stop");
   } else if (document.getElementById("move-ans").innerText == "invalid") {
     document.getElementById("ans").innerHTML += num;
-  } else if (document.getElementById("move-ans").innerText.length != 0) {
-    console.log("clear first");
+  } else if (
+    document.getElementById("move-ans").innerText.length != 0 &&
+    document
+      .getElementById("ans")
+      .innerText.charAt(document.getElementById("ans").length - 1) != num
+  ) {
+    document.getElementById("ans").innerHTML += num;
   } else {
     document.getElementById("ans").innerHTML += num;
   }
@@ -22,8 +27,6 @@ function operators(num) {
     let value = document.getElementById("ans").innerText;
     ans_div.innerHTML = value.replace(value.charAt(length), num);
     console.log(length);
-  } else if (document.getElementById("move-ans").innerText.length != 0) {
-    console.log("clear first");
   } else {
     document.getElementById("ans").innerHTML += num;
   }
@@ -46,8 +49,6 @@ function n2() {
   let length = document.getElementById("ans").innerText.length - 1;
   if (document.getElementById("move-ans").innerText == "invalid") {
     solve();
-  } else if (document.getElementById("move-ans").innerText.length != 0) {
-    console.log("clear");
   } else if (
     sum.charAt(length) == "*" ||
     sum.charAt(length) == "/" ||
