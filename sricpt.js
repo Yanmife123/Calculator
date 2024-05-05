@@ -1,15 +1,26 @@
+var once = 0;
+
 function n1(num) {
+  let number = document.getElementById("ans").innerText;
   if (document.getElementById("ans").innerText.length == 20) {
     console.log("stop");
   } else if (document.getElementById("move-ans").innerText == "invalid") {
     document.getElementById("ans").innerHTML += num;
   } else if (
-    document.getElementById("move-ans").innerText.length != 0 &&
-    document
-      .getElementById("ans")
-      .innerText.charAt(document.getElementById("ans").length - 1) != num
+    document.getElementById("move-ans").innerText != 0 &&
+    (number.charAt(number.length - 1) == "+" ||
+      number.charAt(number.length - 1) == "-" ||
+      number.charAt(number.length - 1) == "*" ||
+      number.charAt(number.length - 1) == "/")
   ) {
     document.getElementById("ans").innerHTML += num;
+    console.log("y");
+    once = 1;
+  } else if (document.getElementById("move-ans").innerText != 0) {
+    console.log("h");
+    if (once == 1) {
+      document.getElementById("ans").innerHTML += num;
+    }
   } else {
     document.getElementById("ans").innerHTML += num;
   }
@@ -60,6 +71,7 @@ function n2() {
   } else {
     solve();
   }
+  once = 0;
 }
 function back() {
   let num = document.getElementById("ans").innerText;
@@ -69,6 +81,7 @@ function back() {
 function remove(clear) {
   document.getElementById("ans").innerHTML = clear;
   document.getElementById("move-ans").innerHTML = clear;
+  once = 0;
 }
 function sign() {
   var sigs = document.getElementById("ans").innerText;
