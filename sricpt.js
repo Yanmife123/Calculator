@@ -28,7 +28,19 @@ function operators(num) {
     document.getElementById("ans").innerHTML += num;
   }
 }
-
+var display = 0;
+function bracket() {
+  let brac = "*()";
+  if (display == 0) {
+    brac = brac.charAt(0) + brac.charAt(1);
+    document.getElementById("ans").innerHTML += brac;
+    display = 1;
+  } else if (display == 1) {
+    brac = brac.charAt(2);
+    document.getElementById("ans").innerHTML += brac;
+    display = 0;
+  }
+}
 function n2() {
   let sum = document.getElementById("ans").innerText;
   let length = document.getElementById("ans").innerText.length - 1;
@@ -67,9 +79,18 @@ function solve() {
   try {
     let sum = document.getElementById("ans").innerText;
     document.getElementById("move-ans").innerHTML = sum;
-    sum = eval(sum);
-    console.log(sum);
-    document.getElementById("ans").innerHTML = +sum;
+    if (sum.match("%") == "%") {
+      let serach_num = sum.search("%");
+      sum = sum.replace(sum.charAt(serach_num), "*(1/100)");
+      sum = eval(sum);
+      console.log(sum);
+      document.getElementById("ans").innerHTML = sum;
+    } else {
+      document.getElementById("move-ans").innerHTML = sum;
+      sum = eval(sum);
+      console.log(sum);
+      document.getElementById("ans").innerHTML = sum;
+    }
   } catch (error) {
     document.getElementById("move-ans").innerHTML = "syntax error";
   }
