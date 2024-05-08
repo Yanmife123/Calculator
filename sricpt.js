@@ -44,13 +44,13 @@ function operators(num) {
 }
 var display = 0;
 function bracket() {
-  let brac = "*()";
+  let brac = "()";
   if (display == 0) {
-    brac = brac.charAt(0) + brac.charAt(1);
+    brac = brac.charAt(0);
     document.getElementById("ans").innerHTML += brac;
     display = 1;
   } else if (display == 1) {
-    brac = brac.charAt(2);
+    brac = brac.charAt(1);
     document.getElementById("ans").innerHTML += brac;
     display = 0;
   }
