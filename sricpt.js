@@ -100,7 +100,7 @@ function solve() {
       for (j = 0; j < sum.length; j++) {
         change = sum.charAt(j);
         if (change == "%") {
-          change = change.replace("%", "*(100)");
+          change = change.replace("%", "*(1/100)");
         }
         num += change;
       }
