@@ -1,4 +1,5 @@
 var once = 0;
+var display = 0;
 
 function n1(num) {
   let number = document.getElementById("ans").innerText;
@@ -42,15 +43,14 @@ function operators(num) {
     document.getElementById("ans").innerHTML += num;
   }
 }
-var display = 0;
 function bracket() {
-  let brac = "*()";
+  let brac = "()";
   if (display == 0) {
-    brac = brac.charAt(0) + brac.charAt(1);
+    brac = brac.charAt(0);
     document.getElementById("ans").innerHTML += brac;
     display = 1;
   } else if (display == 1) {
-    brac = brac.charAt(2);
+    brac = brac.charAt(1);
     document.getElementById("ans").innerHTML += brac;
     display = 0;
   }
@@ -93,12 +93,20 @@ function solve() {
   try {
     let sum = document.getElementById("ans").innerText;
     document.getElementById("move-ans").innerHTML = sum;
+    let Solution;
+    let num = "";
+    let change;
     if (sum.match("%") == "%") {
-      let serach_num = sum.search("%");
-      sum = sum.replace(sum.charAt(serach_num), "*(1/100)");
-      sum = eval(sum);
-      console.log(sum);
-      document.getElementById("ans").innerHTML = sum;
+      for (j = 0; j < sum.length; j++) {
+        change = sum.charAt(j);
+        if (change == "%") {
+          change = change.replace("%", "*(100)");
+        }
+        num += change;
+      }
+      Solution = eval(num);
+      console.log(Solution);
+      document.getElementById("ans").innerHTML = Solution;
     } else {
       document.getElementById("move-ans").innerHTML = sum;
       sum = eval(sum);
